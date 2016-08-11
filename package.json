@@ -1,0 +1,31 @@
+{
+  "name": "parsecss",
+  "version": "1.0.0",
+  "description": "Simple tool to parse CSS into a JSON structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quora/parsecss.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Michael Yong <michael@quora.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "parsecss": "./bin/parsecss"
+  },
+  "homepage": "https://github.com/quora/parsecss#readme",
+  "dependencies": {
+    "cssmin": "^0.4.3",
+    "postcss": "^5.1.2",
+    "underscore": "^1.8.3",
+    "yargs": "^4.8.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1"
+  }
+}
