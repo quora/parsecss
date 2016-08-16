@@ -16,17 +16,14 @@
  *
  */
 
+
 /**
  * Entry point for parsecss.
- * __reviewer__ = 'michael'
  */
 var yargs = require('yargs');
 var fs = require('fs');
 var readline = require('readline');
-var parseCSS = require('./src/parse').parseCSS;
-
-// Export the parseCSS function.
-module.exports = parseCSS;
+var parseCSS = require('../index').parseCSS;
 
 if (require.main === module) {
     var argv = yargs
@@ -39,7 +36,7 @@ if (require.main === module) {
         .check(function(argv, options) {
             // Fail if user tries to pass in a file without the -f flag.
             if (argv._.length !== 0) {
-                throw 'Use the -f flag to specifiy an input file!';
+                throw new Error('Use the -f flag to specifiy an input file!');
             }
             return true;
         })

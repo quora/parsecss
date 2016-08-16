@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Copyright 2016 Quora, Inc.
  *
@@ -16,53 +15,5 @@
  *
  */
 
-/**
- * Entry point for parsecss.
- */
-var yargs = require('yargs');
-var fs = require('fs');
-var readline = require('readline');
-var parseCSS = require('./src/parse').parseCSS;
-
 // Export the parseCSS function.
-module.exports = parseCSS;
-
-if (require.main === module) {
-    var argv = yargs
-        .usage('Usage: $0 <options>')
-        .example('$0 -f main.css', 'Parse the given file and output results')
-        .example('$0 < main.css ', 'Parse stdin and output results')
-        .nargs('f', 1)
-        .alias('f', 'file')
-        .help('h')
-        .check(function(argv, options) {
-            // Fail if user tries to pass in a file without the -f flag.
-            if (argv._.length !== 0) {
-                throw new Error('Use the -f flag to specifiy an input file!');
-            }
-            return true;
-        })
-        .alias('h', 'help')
-        .argv;
-
-    // Read stdin or -f input.
-    var readInputFile = function(callback) {
-        var input = argv.file ? fs.createReadStream(argv.file) : process.stdin;
-        var readlineInterface = readline.createInterface({
-            input: input,
-            terminal: false
-        });
-        var lines = [];
-        readlineInterface.on('line', function(line) {
-            lines.push(line);
-        });
-        readlineInterface.on('close', function() {
-            callback(lines.join('\n'));
-        });
-    };
-
-    readInputFile(function(css) {
-        var output = parseCSS(css);
-        process.stdout.write(JSON.stringify(output) + '\n');
-    });
-}
+module.exports = require('./src/parse').parseCSS;
