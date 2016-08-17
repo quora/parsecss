@@ -2,11 +2,11 @@
 
 Convert CSS Stylesheets into a simple JSON structure.
 
-`parsecss` was written to support critical css inlining on dynamic pages. The
+`parsecss` was written to support critical CSS inlining on dynamic pages. The
 JSON structure it produces is optimized for figuring out which CSS rules should
 be applied to a given page. We use [postcss](https://github.com/postcss/postcss)
-to do most of the heavy lifting but instead of an AST, the JSON output makes it
-easier to use directly for certain use cases.
+to do most of the heavy lifting, but our JSON output makes it easier to use than
+an AST for certain use cases.
 
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](LICENSE)
 
@@ -36,22 +36,22 @@ var output = parseCSS(css);
 
 ## JSON Structure
 
-`parsecss` was written to support critical css inlining on dynamic pages. As
+`parsecss` was written to support critical CSS inlining on dynamic pages. As
 such, the JSON structure it produces is optimized for figuring out which CSS
 rules should be applied to a given page.
 
 ### Terminology:
 
-1. Rules - A CSS Rules refers to its selector + its declarations
-2. Selectors - For each rule, the selectors define which elements are affected.
+1. Rules - A _CSS rule_ refers to a selector + its declarations.
+2. Selectors - For each rule, the _selectors_ define which elements are affected.
 
-We consider each rule in an `@media querie` as its own rule to ensure that all we
+We consider each rule in a `@media` query as its own rule to ensure that we
 don't miss out on any rules that should be included.
 
 ### Global Rules
 
 We consider all rules with selectors that don't contain class names to be
-Global. Since we don't use IDs in our CSS selectors, this effectively means that
+global. Since we don't use IDs in our CSS selectors, this effectively means that
 all rules that directly affect tags (eg. html, body, a) are global.
 
 ### Class List Pairs
@@ -64,7 +64,7 @@ Eg. `.home .link.a {}` => `['home', 'link']`
 ### `@font-face` Rules
 
 These rules are split into their own section since they are almost always
-critical and required to fetch the fonts as soon as possible.
+critical and are required to fetch the fonts as soon as possible.
 
 ### Keyframes
 
