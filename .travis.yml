@@ -1,6 +1,11 @@
 language: node_js
+
 node_js:
   - "6"
   - "iojs"
+
+before_install:
+  - npm install -g mocha
+
 script:
   - npm test
