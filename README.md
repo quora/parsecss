@@ -9,6 +9,7 @@ to do most of the heavy lifting, but our JSON output makes it easier to use than
 an AST for certain use cases.
 
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](LICENSE)
+[![Build Status](https://travis-ci.org/quora/parsecss.svg?branch=master)](https://travis-ci.org/quora/parsecss)
 
 ## Installation
 
