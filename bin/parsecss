@@ -23,7 +23,7 @@
 var yargs = require('yargs');
 var fs = require('fs');
 var readline = require('readline');
-var parseCSS = require('../index').parseCSS;
+var parseCSS = require('../index');
 
 if (require.main === module) {
     var argv = yargs
