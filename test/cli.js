@@ -63,7 +63,7 @@ describe('bin/parsecss', function() {
         });
     });
 
-    it.only('should work when passed a file via stdin', function(done) {
+    it('should work when passed a file via stdin', function(done) {
         var child = childProcess.execFile(BIN_PARSE_CSS, [], {
             timeout: CMD_TIMEOUT,
         }, function(error, stdout, stderr) {
