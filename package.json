@@ -1,6 +1,6 @@
 {
   "name": "parsecss",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple tool to parse CSS into a JSON structure.",
   "main": "index.js",
   "scripts": {
