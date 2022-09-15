@@ -15,7 +15,7 @@
  *
  */
 
- /* global describe, it */
+/* global describe, it */
 var expect = require('expect.js'),
     parse = require('../src/parse');
 
