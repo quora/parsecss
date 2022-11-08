@@ -15,7 +15,7 @@
  *
  */
 
- /* global describe, it */
+/* global describe, it */
 var expect = require('expect.js'),
     path = require('path'),
     fs = require('fs'),

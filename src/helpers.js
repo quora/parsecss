@@ -26,7 +26,7 @@ var CLASS_NAME_RE = /\.([a-zA-Z0-9_-]+)/g;
  * @param {Node} node
  * @return {Boolean}
  */
-exports.isKeyFrameAtRule = function(node) {
+exports.isKeyFrameAtRule = function (node) {
     return node.type == 'atrule' && node.name.indexOf('keyframes') != -1;
 };
 
@@ -35,7 +35,7 @@ exports.isKeyFrameAtRule = function(node) {
  * @param {Node} node
  * @return {Boolean}
  */
-var isMediaAtRule = exports.isMediaAtRule = function(node) {
+var isMediaAtRule = exports.isMediaAtRule = function (node) {
     return node.type == 'atrule' && node.name == 'media';
 };
 
@@ -44,7 +44,7 @@ var isMediaAtRule = exports.isMediaAtRule = function(node) {
  * @param {Node} node
  * @return {Boolean}
  */
-exports.isFontFaceAtRule = function(node) {
+exports.isFontFaceAtRule = function (node) {
     return node.type == 'atrule' && node.name == 'font-face';
 };
 
@@ -53,13 +53,7 @@ exports.isFontFaceAtRule = function(node) {
  * @param {String} selector
  * @return {Array.<String>}
  */
-exports.selectorToClassNames = function(selector) {
-    var selectors = selector.split(',');
-    selector = selectors.map(function(selector) {
-        // Remove pseudo selectors.
-        return selector.split(':')[0];
-    }).join(' ');
-
+exports.selectorToClassNames = function (selector) {
     var names = [];
     var result;
     while ((result = CLASS_NAME_RE.exec(selector)) !== null) {
@@ -75,7 +69,7 @@ exports.selectorToClassNames = function(selector) {
  *   assumed to be a top-level node.
  * @return {String}
  */
-exports.ruleToString = function(rule, parentNode) {
+exports.ruleToString = function (rule, parentNode) {
     var ruleString = rule.toString();
 
     if (parentNode && isMediaAtRule(parentNode)) {
